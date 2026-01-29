@@ -1,0 +1,943 @@
+<!doctype html>
+<html lang="fa" dir="rtl" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>منوی کافه داروش</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    * {
+      font-family: 'Vazirmatn', sans-serif;
+    }
+    .menu-card {
+      background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
+      border: 1px solid rgba(255, 215, 0, 0.1);
+    }
+    .menu-card:hover {
+      border-color: rgba(255, 215, 0, 0.3);
+      transform: translateY(-2px);
+    }
+    .category-header {
+      background: linear-gradient(90deg, rgba(255, 215, 0, 0.1) 0%, transparent 100%);
+    }
+    .item-row:hover {
+      background: rgba(255, 215, 0, 0.05);
+    }
+    .golden-glow {
+      text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    }
+    .scroll-smooth {
+      scroll-behavior: smooth;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0f0f1a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #ffd700;
+      border-radius: 3px;
+    }
+    nav::-webkit-scrollbar {
+      display: none;
+    }
+    nav {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .nav-btn.active {
+      background: linear-gradient(135deg, #ffd700 0%, #ffaa00 100%);
+      color: #0f0f1a;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeIn {
+      animation: fadeIn 0.5s ease-out forwards;
+    }
+    .hookah-icon {
+      filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.4));
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full bg-gradient-to-br from-[#0a0a14] via-[#0a0a14] to-[#0a0a14] text-white overflow-auto">
+  <div class="min-h-full w-full">
+   <!-- Header -->
+   <header id="main-header" class="sticky top-0 z-50 pb-4 pt-6 px-4 transition-all duration-500" style="background: linear-gradient(to bottom, rgba(10, 10, 20, 0.98), rgba(10, 10, 20, 0.85), transparent);">
+    <div class="max-w-6xl mx-auto text-center">
+     <div class="flex items-center justify-center gap-3 mb-2">
+      <h1 id="cafe-name" class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-l from-amber-300 via-yellow-400 to-amber-500 golden-glow">DARVASH cafe</h1>
+     </div>
+     <p class="text-amber-400/60 text-sm tracking-widest">کافه داروش</p>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="max-w-6xl mx-auto mt-4 overflow-x-auto scroll-smooth -mx-4 md:mx-auto" style="scrollbar-width: none; -ms-overflow-style: none;">
+     <div class="flex gap-2 justify-start md:justify-center pb-2 px-4 min-w-max">
+      <button onclick="scrollToSection('coffee', this)" data-section="coffee" class="nav-btn px-4 py-2 rounded-full text-sm font-medium bg-white/5 hover:bg-amber-400/20 transition-all duration-300 whitespace-nowrap flex items-center gap-2">
+       <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M2,21V19H20V21H2M20,8V5H18V8H20M20,3A2,2 0 0,1 22,5V8A2,2 0 0,1 20,10H18V13A4,4 0 0,1 14,17H8A4,4 0 0,1 4,13V3H20M16,5H6V13A2,2 0 0,0 8,15H14A2,2 0 0,0 16,13V5Z" />
+       </svg>
+       قهوه
+      </button>
+      
+      <button onclick="scrollToSection('tea', this)" data-section="tea" class="nav-btn px-4 py-2 rounded-full text-sm font-medium bg-white/5 hover:bg-amber-400/20 transition-all duration-300 whitespace-nowrap flex items-center gap-2">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="23" height="23" fill="none">
+  <!-- بخار -->
+  <path d="M28 6c-3 4 3 6 0 10" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+  <path d="M36 6c-3 4 3 6 0 10" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- لیوان -->
+  <rect x="16" y="20" width="28" height="22" rx="4" stroke="#fff" stroke-width="2"/>
+
+  <!-- دسته -->
+  <path d="M44 24h4a6 6 0 0 1 0 12h-4" stroke="#fff" stroke-width="2"/>
+
+  <!-- برگ دمنوش (واضح و نمادین) -->
+  <path d="M26 32c6-6 16-4 16 4c-6 4-16 2-16-4z"
+        stroke="#fff" stroke-width="2" fill="none"/>
+
+  <!-- خط زیر -->
+  <line x1="16" y1="48" x2="44" y2="48" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+</svg>
+       چای و دمنوش
+      </button>
+      
+      <button onclick="scrollToSection('shake', this)" data-section="shake" class="nav-btn px-4 py-2 rounded-full text-sm font-medium bg-white/5 hover:bg-amber-400/20 transition-all duration-300 whitespace-nowrap flex items-center gap-2">
+   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="23" height="23" fill="none">
+  <!-- نی -->
+  <path d="M40 6l-6 10" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+  <path d="M34 16v10" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- لیوان شیک -->
+  <path d="M22 18h20l-4 34a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4l-4-34z"
+        stroke="#fff" stroke-width="2" fill="none"/>
+
+  <!-- خط حجم نوشیدنی -->
+  <line x1="26" y1="30" x2="38" y2="30" stroke="#fff" stroke-width="2"/>
+
+  <!-- پایه -->
+  <line x1="24" y1="56" x2="40" y2="56" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+</svg>
+       شیک
+      </button>
+      
+      <button onclick="scrollToSection('smoothie', this)" data-section="smoothie" class="nav-btn px-4 py-2 rounded-full text-sm font-medium bg-white/5 hover:bg-amber-400/20 transition-all duration-300 whitespace-nowrap flex items-center gap-2">
+ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="23" height="23" fill="none">
+  <!-- نی -->
+  <path d="M34 6v10" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- درب جار -->
+  <rect x="22" y="16" width="20" height="4" rx="1" stroke="#fff" stroke-width="2"/>
+
+  <!-- بدنه مربعی جار -->
+  <rect x="22" y="20" width="20" height="28" rx="3" stroke="#fff" stroke-width="2"/>
+
+  <!-- خط سطح نوشیدنی -->
+  <line x1="24" y1="34" x2="40" y2="34" stroke="#fff" stroke-width="2"/>
+</svg>
+       اسموتی
+      </button>
+      
+      <button onclick="scrollToSection('dessert', this)" data-section="dessert" class="nav-btn px-4 py-2 rounded-full text-sm font-medium bg-white/5 hover:bg-amber-400/20 transition-all duration-300 whitespace-nowrap flex items-center gap-2">
+<svg fill="#ffffff" height="16" width="16" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 502.4 502.4" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M459.2,459.733h-13.867V243.2c0-11.733-9.6-21.333-21.333-21.333h-33.067v-105.6c0-11.733-9.6-21.333-21.333-21.333 s-21.333,9.6-21.333,21.333v105.6h-75.733v-105.6c0-11.733-9.6-21.333-21.333-21.333s-21.333,9.6-21.333,21.333v105.6h-75.733 v-105.6c0-11.733-9.6-21.333-21.333-21.333s-21.333,9.6-21.333,21.333v105.6H78.4c-11.733,0-21.333,9.6-21.333,21.333v216.533 H43.2c-11.733,0-21.333,9.6-21.333,21.333S31.467,502.4,43.2,502.4h35.2H424h35.2c11.733,0,21.333-9.6,21.333-21.333 S470.934,459.733,459.2,459.733z M403.733,459.733h-304v-54.4c1.067-1.067,2.133-1.067,3.2-2.133 c20.267-17.067,50.133-23.467,75.733-16c3.2,1.067,6.4,2.133,9.6,3.2c8.533,2.133,19.2,5.333,29.867,6.4 c18.133,1.067,35.2-5.333,50.133-11.733c12.8-5.333,24.533-9.6,34.133-7.467c3.2,1.067,7.467,3.2,12.8,5.333 c4.267,2.133,7.467,4.267,10.667,5.333c24.533,10.667,53.333,9.6,77.867-1.067V459.733z M403.733,341.333 c-2.133,1.067-3.2,1.067-5.333,2.133c-16,11.733-37.333,13.867-55.467,6.4c-2.133-2.133-21.333-10.667-29.867-12.8 c-22.4-5.333-42.667,2.133-59.733,9.6c-11.733,4.267-22.4,8.533-32,8.533c-6.4,0-12.8-2.133-19.2-4.267 c-4.267-2.133-7.467-3.2-11.733-4.267c-29.867-8.533-62.933-4.267-90.667,9.6v-91.733h304V341.333z"></path> </g> </g> <g> <g> <path d="M132.8,0c-11.733,0-21.333,9.6-21.333,21.333v21.333C111.467,54.4,121.067,64,132.8,64s21.333-8.533,21.333-21.333V21.333 C154.133,9.6,144.534,0,132.8,0z"></path> </g> </g> <g> <g> <path d="M251.2,0c-11.733,0-21.333,9.6-21.333,21.333v21.333C229.867,54.4,239.467,64,251.2,64s21.333-8.533,21.333-21.333V21.333 C272.534,9.6,262.934,0,251.2,0z"></path> </g> </g> <g> <g> <path d="M369.6,0c-11.733,0-21.333,9.6-21.333,21.333v21.333C348.267,54.4,357.867,64,369.6,64s20.267-8.533,21.333-21.333V21.333 C390.934,9.6,381.334,0,369.6,0z"></path> </g> </g> </g></svg>
+        
+       کیک و دسر
+      </button>
+      
+      <button onclick="scrollToSection('hot', this)" data-section="hot" class="nav-btn px-4 py-2 rounded-full text-sm font-medium bg-white/5 hover:bg-amber-400/20 transition-all duration-300 whitespace-nowrap flex items-center gap-2">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="23" height="23" fill="none">
+  <!-- بخار چای -->
+  <path d="M22 10c-2 3 2 5 0 8" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+  <path d="M32 8c-2 3 2 5 0 8" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+  <path d="M42 10c-2 3 2 5 0 8" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- لیوان -->
+  <path d="M16 22h28v18a8 8 0 0 1-8 8H24a8 8 0 0 1-8-8V22z"
+        stroke="#fff" stroke-width="2" fill="none"/>
+
+  <!-- دسته لیوان -->
+  <path d="M44 26h4a6 6 0 0 1 0 12h-4"
+        stroke="#fff" stroke-width="2" fill="none"/>
+
+  <!-- زیر لیوان -->
+  <line x1="18" y1="52" x2="42" y2="52" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+</svg>
+       نوشیدنی گرم
+      </button>
+      
+      <button onclick="scrollToSection('mocktail', this)" data-section="mocktail" class="nav-btn px-4 py-2 rounded-full text-sm font-medium bg-white/5 hover:bg-amber-400/20 transition-all duration-300 whitespace-nowrap flex items-center gap-2">
+ <svg width="19" height="19" viewBox="-4 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>drink [#47]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-104.000000, -7999.000000)" fill="#ffffff"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M58,7849 L50,7849 L50,7848 C50,7847.448 50.448,7847 51,7847 L57,7847 C57.552,7847 58,7847.448 58,7848 L58,7849 Z M56.527,7857 L51.805,7857 L50.604,7851 L57.728,7851 L56.527,7857 Z M58,7845 L55,7845 L55,7842 C55,7841.448 55.448,7841 56,7841 C56.552,7841 57,7840.552 57,7840 C57,7839.448 56.552,7839 56,7839 L55,7839 C53.896,7839 53,7839.895 53,7841 L53,7845 L50,7845 C48.896,7845 48,7845.895 48,7847 L48,7849 C48.606,7851.512 48.214,7849.719 49.999,7858.204 C50.096,7858.667 50.505,7859 50.978,7859 L57.338,7859 C57.818,7859 58.231,7858.657 58.321,7858.185 C59.928,7849.717 59.606,7851.492 60,7849 L60,7847 C60,7845.895 59.104,7845 58,7845 L58,7845 Z" id="drink-[#47]"> </path> </g> </g> </g> </g></svg>
+       ماکتل
+      </button>
+      
+      <button onclick="scrollToSection('food', this)" data-section="food" class="nav-btn px-4 py-2 rounded-full text-sm font-medium bg-white/5 hover:bg-amber-400/20 transition-all duration-300 whitespace-nowrap flex items-center gap-2">
+ <svg width="23" height="23" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M359.8 368.7c-83.5 37-150 103.4-187.1 186.9-5.6 12.6 0.1 27.3 12.7 32.9 3.3 1.5 6.7 2.2 10.1 2.2 9.6 0 18.7-5.5 22.8-14.8 32.1-72.2 89.5-129.6 161.7-161.6 12.6-5.6 18.3-20.3 12.7-32.9-5.5-12.6-20.3-18.3-32.9-12.7z m214.6-108.5c7.2-11.8 11.6-25.5 11.6-40.3 0-42.8-34.7-77.4-77.4-77.4-42.8 0-77.4 34.7-77.4 77.4 0 14.8 4.4 28.6 11.6 40.3-216.7 31.9-383.5 219-383.5 444.4v54.1c0 13.8 11.2 25 25 25H933c13.8 0 25-11.2 25-25v-54.1c-0.1-225.4-167-412.4-383.6-444.4zM908 733.7H109.2v-29.1c0-220.2 179.2-399.3 399.4-399.3S908 484.4 908 704.6v29.1z m24.9 100.2H84.2c-13.8 0-25 11.2-25 25s11.2 25 25 25h848.7c13.8 0 25-11.2 25-25s-11.2-25-25-25z" fill="#ffffff"></path></g></svg>
+          غذا / پکیج / نوشیدنی 
+      </button>
+
+      
+      <button onclick="scrollToSection('pizza', this)" data-section="pizza" class="nav-btn px-4 py-2 rounded-full text-sm font-medium bg-white/5 hover:bg-amber-400/20 transition-all duration-300 whitespace-nowrap flex items-center gap-2">
+       <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12,15A2,2 0 0,1 10,13C10,11.89 10.9,11 12,11A2,2 0 0,1 14,13A2,2 0 0,1 12,15M7,7C7,5.89 7.89,5 9,5A2,2 0 0,1 11,7A2,2 0 0,1 9,9C7.89,9 7,8.1 7,7M12,2C8.43,2 5.23,3.54 3.01,6L12,22L20.99,6C18.78,3.54 15.57,2 12,2Z" />
+       </svg>
+       پیتزا
+      </button>
+      
+      <button onclick="scrollToSection('hookah', this)" data-section="hookah" class="nav-btn px-4 py-2 rounded-full text-sm font-medium bg-white/5 hover:bg-amber-400/20 transition-all duration-300 whitespace-nowrap flex items-center gap-2">
+       <svg class="w-4 h-4 hookah-icon" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M8,3A2,2 0 0,0 6,5V8H4V10H6V19A2,2 0 0,0 8,21H10A2,2 0 0,0 12,19V10H14V8H12V5A2,2 0 0,0 10,3H8M8,5H10V8H8V5M8,10H10V19H8V10M16,8V10H18C19.1,10 20,10.9 20,12V14C20,15.1 19.1,16 18,16H16V18H18A4,4 0 0,0 22,14V12A4,4 0 0,0 18,8H16Z" />
+       </svg>
+       قلیان
+      </button>
+     </div>
+    </nav>
+   </header>
+   
+   <!-- Main Content -->
+   <main class="max-w-6xl mx-auto px-4 pb-8 space-y-6">
+    <!-- Coffee Section -->
+    <section id="coffee" class="menu-card rounded-2xl p-5 transition-all duration-300 animate-fadeIn">
+     <div class="category-header rounded-xl p-3 mb-4 flex items-center gap-3">
+      <div class="w-12 h-12 rounded-full bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center">
+       <svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M2,21V19H20V21H2M20,8V5H18V8H20M20,3A2,2 0 0,1 22,5V8A2,2 0 0,1 20,10H18V13A4,4 0 0,1 14,17H8A4,4 0 0,1 4,13V3H20M16,5H6V13A2,2 0 0,0 8,15H14A2,2 0 0,0 16,13V5Z" />
+       </svg>
+      </div>
+      <h2 class="text-2xl font-bold text-amber-400">قهوه</h2>
+     </div>
+     <div class="space-y-2">
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200">اسپرسو</span>
+       <span class="text-amber-400 font-semibold">130T</span>
+      </div>
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200">آمریکانو / آیس</span>
+       <span class="text-amber-400 font-semibold">140T</span>
+      </div>
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200">ترک</span>
+       <span class="text-amber-400 font-semibold">150T</span>
+      </div>
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200">هایپ اسپرسو</span>
+       <span class="text-amber-400 font-semibold">190T</span>
+      </div>
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200">کورتادو / کاپوچینو</span>
+       <span class="text-amber-400 font-semibold">170T</span>
+      </div>
+     </div>
+     
+     <!-- Latte Sub-section -->
+     <div class="mt-4 pt-4 border-t border-amber-400/10">
+      <h3 class="text-lg font-semibold text-amber-300 mb-3 flex items-center gap-2">
+       <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M2,21V19H20V21H2M20,8V5H18V8H20M20,3A2,2 0 0,1 22,5V8A2,2 0 0,1 20,10H18V13A4,4 0 0,1 14,17H8A4,4 0 0,1 4,13V3H20M16,5H6V13A2,2 0 0,0 8,15H14A2,2 0 0,0 16,13V5Z" />
+       </svg>
+       لاته / آیس
+      </h3>
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200">لاته / آیس</span>
+       <span class="text-amber-400 font-semibold">170T</span>
+      </div>
+      <div class="mt-2 px-3 py-2 bg-amber-400/5 rounded-lg">
+       <p class="text-sm text-gray-400">طعم‌ها: موکا، کارامل، آیریش، فندق، نارگیل، دارچین</p>
+       <p class="text-sm text-amber-400/80 mt-1">افزودن هر طعم — 25T</p>
+      </div>
+     </div>
+    </section>
+    
+    <!-- Tea Section -->
+    <section id="tea" class="menu-card rounded-2xl p-5 transition-all duration-300 animate-fadeIn">
+     <div class="category-header rounded-xl p-3 mb-4 flex items-center gap-3">
+      <div class="w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center">
+ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="33" height="33" fill="none">
+  <!-- بخار -->
+  <path d="M28 6c-3 4 3 6 0 10" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+  <path d="M36 6c-3 4 3 6 0 10" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- لیوان -->
+  <rect x="16" y="20" width="28" height="22" rx="4" stroke="#fff" stroke-width="2"/>
+
+  <!-- دسته -->
+  <path d="M44 24h4a6 6 0 0 1 0 12h-4" stroke="#fff" stroke-width="2"/>
+
+  <!-- برگ دمنوش (واضح و نمادین) -->
+  <path d="M26 32c6-6 16-4 16 4c-6 4-16 2-16-4z"
+        stroke="#fff" stroke-width="2" fill="none"/>
+
+  <!-- خط زیر -->
+  <line x1="16" y1="48" x2="44" y2="48" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+</svg>
+      </div>
+      <h2 class="text-2xl font-bold text-green-400">چای / دمنوش</h2>
+     </div>
+     <div class="space-y-2">
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200">چای سیاه</span>
+       <span class="text-green-400 font-semibold">90T</span>
+      </div>
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200">چای سبز</span>
+       <span class="text-green-400 font-semibold">140T</span>
+      </div>
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200">چای میوه‌ای</span>
+       <span class="text-green-400 font-semibold">140T</span>
+      </div>
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200"> سرماخوردگی</span>
+       <span class="text-green-400 font-semibold">140T</span>
+      </div>
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200">آرامش</span>
+       <span class="text-green-400 font-semibold">140T</span>
+      </div>
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200"> نشاط</span>
+       <span class="text-green-400 font-semibold">140T</span>
+      </div>
+     </div>
+    </section>
+    
+    <!-- Shake Section -->
+    <section id="shake" class="menu-card rounded-2xl p-5 transition-all duration-300 animate-fadeIn">
+     <div class="category-header rounded-xl p-3 mb-4 flex items-center gap-3">
+      <div class="w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-pink-700 flex items-center justify-center">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="33" height="33" fill="none">
+  <!-- نی -->
+  <path d="M40 6l-6 10" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+  <path d="M34 16v10" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- لیوان شیک -->
+  <path d="M22 18h20l-4 34a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4l-4-34z"
+        stroke="#fff" stroke-width="2" fill="none"/>
+
+  <!-- خط حجم نوشیدنی -->
+  <line x1="26" y1="30" x2="38" y2="30" stroke="#fff" stroke-width="2"/>
+
+  <!-- پایه -->
+  <line x1="24" y1="56" x2="40" y2="56" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+</svg>
+      </div>
+      <h2 class="text-2xl font-bold text-pink-400">شیک</h2>
+     </div>
+     <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200"> شکلات</span>
+       <span class="text-pink-400 font-semibold">200T</span>
+      </div>
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200">کارامل</span>
+       <span class="text-pink-400 font-semibold">200T</span>
+      </div>
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200"> قهوه</span>
+       <span class="text-pink-400 font-semibold">220T</span>
+      </div>
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200"> توت‌فرنگی</span>
+       <span class="text-pink-400 font-semibold">220T</span>
+      </div>
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200"> بیسکویت</span>
+       <span class="text-pink-400 font-semibold">230T</span>
+      </div>
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200"> بادام‌زمینی</span>
+       <span class="text-pink-400 font-semibold">240T</span>
+      </div>
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200"> موز شکلات</span>
+       <span class="text-pink-400 font-semibold">240T</span>
+      </div>
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200"> نوتلا</span>
+       <span class="text-pink-400 font-semibold">245T</span>
+      </div>
+     </div>
+    </section>
+    
+    <!-- Smoothie Section -->
+    <section id="smoothie" class="menu-card rounded-2xl p-5 transition-all duration-300 animate-fadeIn">
+     <div class="category-header rounded-xl p-3 mb-4 flex items-center gap-3">
+      <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="33" height="33" fill="none">
+  <!-- نی -->
+  <path d="M34 6v10" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- درب جار -->
+  <rect x="22" y="16" width="20" height="4" rx="1" stroke="#fff" stroke-width="2"/>
+
+  <!-- بدنه مربعی جار -->
+  <rect x="22" y="20" width="20" height="28" rx="3" stroke="#fff" stroke-width="2"/>
+
+  <!-- خط سطح نوشیدنی -->
+  <line x1="24" y1="34" x2="40" y2="34" stroke="#fff" stroke-width="2"/>
+</svg>
+      </div>
+      <h2 class="text-2xl font-bold text-purple-400">اسموتی</h2>
+     </div>
+     <div class="space-y-2">
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200"> شیرموز</span>
+       <span class="text-purple-400 font-semibold">180T</span>
+      </div>
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <div>
+        <span class="text-gray-200"> تروپیکال</span>
+        <p class="text-xs text-gray-500 mt-1">آناناس، انبه، موز</p>
+       </div>
+       <span class="text-purple-400 font-semibold">195T</span>
+      </div>
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200"> میوه‌های جنگلی</span>
+       <span class="text-purple-400 font-semibold">195T</span>
+      </div>
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <div>
+        <span class="text-gray-200"> بلوهاوایی</span>
+        <p class="text-xs text-gray-500 mt-1">بلوبری، آناناس، نارگیل</p>
+       </div>
+       <span class="text-purple-400 font-semibold">195T</span>
+      </div>
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200"> لواشک</span>
+       <span class="text-purple-400 font-semibold">195T</span>
+      </div>
+     </div>
+    </section>
+    
+    <!-- Cake & Dessert Section -->
+    <section id="dessert" class="menu-card rounded-2xl p-5 transition-all duration-300 animate-fadeIn">
+     <div class="category-header rounded-xl p-3 mb-4 flex items-center gap-3">
+      <div class="w-12 h-12 rounded-full bg-gradient-to-br from-rose-500 to-rose-700 flex items-center justify-center">
+  <svg fill="#ffffff" height="23" width="23" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 502.4 502.4" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M459.2,459.733h-13.867V243.2c0-11.733-9.6-21.333-21.333-21.333h-33.067v-105.6c0-11.733-9.6-21.333-21.333-21.333 s-21.333,9.6-21.333,21.333v105.6h-75.733v-105.6c0-11.733-9.6-21.333-21.333-21.333s-21.333,9.6-21.333,21.333v105.6h-75.733 v-105.6c0-11.733-9.6-21.333-21.333-21.333s-21.333,9.6-21.333,21.333v105.6H78.4c-11.733,0-21.333,9.6-21.333,21.333v216.533 H43.2c-11.733,0-21.333,9.6-21.333,21.333S31.467,502.4,43.2,502.4h35.2H424h35.2c11.733,0,21.333-9.6,21.333-21.333 S470.934,459.733,459.2,459.733z M403.733,459.733h-304v-54.4c1.067-1.067,2.133-1.067,3.2-2.133 c20.267-17.067,50.133-23.467,75.733-16c3.2,1.067,6.4,2.133,9.6,3.2c8.533,2.133,19.2,5.333,29.867,6.4 c18.133,1.067,35.2-5.333,50.133-11.733c12.8-5.333,24.533-9.6,34.133-7.467c3.2,1.067,7.467,3.2,12.8,5.333 c4.267,2.133,7.467,4.267,10.667,5.333c24.533,10.667,53.333,9.6,77.867-1.067V459.733z M403.733,341.333 c-2.133,1.067-3.2,1.067-5.333,2.133c-16,11.733-37.333,13.867-55.467,6.4c-2.133-2.133-21.333-10.667-29.867-12.8 c-22.4-5.333-42.667,2.133-59.733,9.6c-11.733,4.267-22.4,8.533-32,8.533c-6.4,0-12.8-2.133-19.2-4.267 c-4.267-2.133-7.467-3.2-11.733-4.267c-29.867-8.533-62.933-4.267-90.667,9.6v-91.733h304V341.333z"></path> </g> </g> <g> <g> <path d="M132.8,0c-11.733,0-21.333,9.6-21.333,21.333v21.333C111.467,54.4,121.067,64,132.8,64s21.333-8.533,21.333-21.333V21.333 C154.133,9.6,144.534,0,132.8,0z"></path> </g> </g> <g> <g> <path d="M251.2,0c-11.733,0-21.333,9.6-21.333,21.333v21.333C229.867,54.4,239.467,64,251.2,64s21.333-8.533,21.333-21.333V21.333 C272.534,9.6,262.934,0,251.2,0z"></path> </g> </g> <g> <g> <path d="M369.6,0c-11.733,0-21.333,9.6-21.333,21.333v21.333C348.267,54.4,357.867,64,369.6,64s20.267-8.533,21.333-21.333V21.333 C390.934,9.6,381.334,0,369.6,0z"></path> </g> </g> </g></svg>
+      </div>
+      <h2 class="text-2xl font-bold text-rose-400">کیک و دسر</h2>
+     </div>
+     <div class="space-y-2">
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200"> کیک روز</span>
+       <span class="text-rose-400 font-semibold">130T</span>
+      </div>
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200"> آفوگاتو</span>
+       <span class="text-rose-400 font-semibold">170T</span>
+      </div>
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200"> کافه گلاسه / شکلات گلاسه</span>
+       <span class="text-rose-400 font-semibold">180T</span>
+      </div>
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200"> فراپه قهوه</span>
+       <span class="text-rose-400 font-semibold">200T</span>
+      </div>
+     </div>
+    </section>
+    
+    <!-- Hot Drinks Section -->
+    <section id="hot" class="menu-card rounded-2xl p-5 transition-all duration-300 animate-fadeIn">
+     <div class="category-header rounded-xl p-3 mb-4 flex items-center gap-3">
+      <div class="w-12 h-12 rounded-full bg-gradient-to-br from-orange-500 to-orange-700 flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="28" height="28" fill="none">
+  <!-- بخار چای -->
+  <path d="M22 10c-2 3 2 5 0 8" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+  <path d="M32 8c-2 3 2 5 0 8" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+  <path d="M42 10c-2 3 2 5 0 8" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- لیوان -->
+  <path d="M16 22h28v18a8 8 0 0 1-8 8H24a8 8 0 0 1-8-8V22z"
+        stroke="#fff" stroke-width="2" fill="none"/>
+
+  <!-- دسته لیوان -->
+  <path d="M44 26h4a6 6 0 0 1 0 12h-4"
+        stroke="#fff" stroke-width="2" fill="none"/>
+
+  <!-- زیر لیوان -->
+  <line x1="18" y1="52" x2="42" y2="52" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+</svg>
+      </div>
+      <h2 class="text-2xl font-bold text-orange-400">نوشیدنی گرم</h2>
+     </div>
+     <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200"> نسکافه</span>
+       <span class="text-orange-400 font-semibold">180T</span>
+      </div>
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200"> ماسالا</span>
+       <span class="text-orange-400 font-semibold">180T</span>
+      </div>
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200"> هات چاکلت</span>
+       <span class="text-orange-400 font-semibold">180T</span>
+      </div>
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200"> وایت چاکلت</span>
+       <span class="text-orange-400 font-semibold">180T</span>
+      </div>
+     </div>
+    </section>
+    
+    <!-- Mocktail Section -->
+    <section id="mocktail" class="menu-card rounded-2xl p-5 transition-all duration-300 animate-fadeIn">
+     <div class="category-header rounded-xl p-3 mb-4 flex items-center gap-3">
+      <div class="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-cyan-700 flex items-center justify-center">
+  <svg width="23" height="23" viewBox="-4 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>drink [#47]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-104.000000, -7999.000000)" fill="#ffffff"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M58,7849 L50,7849 L50,7848 C50,7847.448 50.448,7847 51,7847 L57,7847 C57.552,7847 58,7847.448 58,7848 L58,7849 Z M56.527,7857 L51.805,7857 L50.604,7851 L57.728,7851 L56.527,7857 Z M58,7845 L55,7845 L55,7842 C55,7841.448 55.448,7841 56,7841 C56.552,7841 57,7840.552 57,7840 C57,7839.448 56.552,7839 56,7839 L55,7839 C53.896,7839 53,7839.895 53,7841 L53,7845 L50,7845 C48.896,7845 48,7845.895 48,7847 L48,7849 C48.606,7851.512 48.214,7849.719 49.999,7858.204 C50.096,7858.667 50.505,7859 50.978,7859 L57.338,7859 C57.818,7859 58.231,7858.657 58.321,7858.185 C59.928,7849.717 59.606,7851.492 60,7849 L60,7847 C60,7845.895 59.104,7845 58,7845 L58,7845 Z" id="drink-[#47]"> </path> </g> </g> </g> </g></svg>
+      </div>
+      <h2 class="text-2xl font-bold text-cyan-400">ماکتل</h2>
+     </div>
+     <div class="space-y-2">
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <div>
+        <span class="text-gray-200"> دریا</span>
+        <p class="text-xs text-gray-500 mt-1">بلوبری، لیمو، آلوئه‌ورا و انرژی زا</p>
+       </div>
+       <span class="text-cyan-400 font-semibold">195T</span>
+      </div>
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <div>
+        <span class="text-gray-200"> جانگل فروت</span>
+        <p class="text-xs text-gray-500 mt-1">شاه‌توت، پرتقال، توت فرنگی</p>
+       </div>
+       <span class="text-cyan-400 font-semibold">195T</span>
+      </div>
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <div>
+        <span class="text-gray-200"> رنگین‌کمان</span>
+        <p class="text-xs text-gray-500 mt-1">بلوبری، لیمو، انبه، پنیرک</p>
+       </div>
+       <span class="text-cyan-400 font-semibold">195T</span>
+      </div>
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200"> موهیتو</span>
+       <span class="text-cyan-400 font-semibold">180T</span>
+      </div>
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200"> لیموناد</span>
+       <span class="text-cyan-400 font-semibold">180T</span>
+      </div>
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <div>
+        <span class="text-gray-200"> صورتی</span>
+        <p class="text-xs text-gray-500 mt-1">انرژی زا، کاکتوس، لیمو و کرن بری</p>
+       </div>
+       <span class="text-cyan-400 font-semibold">195T</span>
+      </div>
+     </div>
+    </section>
+    
+    <!-- Main Food Section -->
+    <section id="food" class="menu-card rounded-2xl p-5 transition-all duration-300 animate-fadeIn">
+     <div class="category-header rounded-xl p-3 mb-4 flex items-center gap-3">
+      <div class="w-12 h-12 rounded-full bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center">
+<svg width="27" height="27" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M359.8 368.7c-83.5 37-150 103.4-187.1 186.9-5.6 12.6 0.1 27.3 12.7 32.9 3.3 1.5 6.7 2.2 10.1 2.2 9.6 0 18.7-5.5 22.8-14.8 32.1-72.2 89.5-129.6 161.7-161.6 12.6-5.6 18.3-20.3 12.7-32.9-5.5-12.6-20.3-18.3-32.9-12.7z m214.6-108.5c7.2-11.8 11.6-25.5 11.6-40.3 0-42.8-34.7-77.4-77.4-77.4-42.8 0-77.4 34.7-77.4 77.4 0 14.8 4.4 28.6 11.6 40.3-216.7 31.9-383.5 219-383.5 444.4v54.1c0 13.8 11.2 25 25 25H933c13.8 0 25-11.2 25-25v-54.1c-0.1-225.4-167-412.4-383.6-444.4zM908 733.7H109.2v-29.1c0-220.2 179.2-399.3 399.4-399.3S908 484.4 908 704.6v29.1z m24.9 100.2H84.2c-13.8 0-25 11.2-25 25s11.2 25 25 25h848.7c13.8 0 25-11.2 25-25s-11.2-25-25-25z" fill="#ffffff"></path></g></svg>
+      </div>
+      <h2 class="text-2xl font-bold text-red-400">غذای اصلی</h2>
+     </div>
+     <div class="space-y-2">
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200"> کلاسیک برگر</span>
+       <span class="text-red-400 font-semibold">340T</span>
+      </div>
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200"> چیز برگر</span>
+       <span class="text-red-400 font-semibold">360T</span>
+      </div>
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200"> رویال برگر</span>
+       <span class="text-red-400 font-semibold">380T</span>
+      </div>
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200"> پاستا چیکن آلفردو</span>
+       <span class="text-red-400 font-semibold">370T</span>
+      </div>
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200"> سالاد سزار سوخاری / گریل</span>
+       <span class="text-red-400 font-semibold">370T</span>
+      </div>
+     </div>
+     
+     <!-- Appetizers Sub-section -->
+     <div class="mt-6 pt-4 border-t border-red-400/10">
+      <h3 class="text-lg font-semibold text-red-300 mb-3 flex items-center gap-2">
+       <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12,3A9,9 0 0,0 3,12A9,9 0 0,0 12,21A9,9 0 0,0 21,12A9,9 0 0,0 12,3Z" />
+       </svg>
+       پیش‌غذا
+      </h3>
+      <div class="space-y-2">
+       <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+        <span class="text-gray-200"> سیب‌زمینی</span>
+        <span class="text-red-400 font-semibold">220T</span>
+       </div>
+       <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+        <span class="text-gray-200"> سیب‌زمینی آلفردو / چدار</span>
+        <span class="text-red-400 font-semibold">270T</span>
+       </div>
+       <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+        <span class="text-gray-200"> سیب‌زمینی ویژه</span>
+        <span class="text-red-400 font-semibold">380T</span>
+       </div>
+       <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+        <span class="text-gray-200"> سیب‌زمینی تنوری با سس قارچ</span>
+        <span class="text-red-400 font-semibold">240T</span>
+       </div>
+       <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+        <span class="text-gray-200"> نان سیر</span>
+        <span class="text-red-400 font-semibold">320T</span>
+       </div>
+      </div>
+     </div>
+     
+     <!-- Packages Sub-section -->
+     <div class="mt-6 pt-4 border-t border-red-400/10">
+      <h3 class="text-lg font-semibold text-red-300 mb-3 flex items-center gap-2">
+       <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M5,4V8H8V4H5M10,4V8H13V4H10M15,4V8H18V4H15M5,10V14H8V10H5M10,10V14H13V10H10M15,10V14H18V10H15M5,16V20H8V16H5M10,16V20H13V16H10M15,16V20H18V16H15Z" />
+       </svg>
+       پکیج‌ها
+      </h3>
+      <div class="space-y-3">
+       <div class="item-row py-4 px-4 rounded-xl bg-gradient-to-r from-amber-500/10 to-transparent border border-amber-400/20">
+        <div class="flex justify-between items-start">
+         <div>
+          <span class="text-gray-100 font-medium"> پکیج نرمال</span>
+          <p class="text-xs text-gray-400 mt-2">پیتزا پپرونی XXL + سیب‌زمینی + قلیان </p>
+         </div>
+         <span class="text-amber-400 font-bold text-lg">660T</span>
+        </div>
+       </div>
+       <div class="item-row py-4 px-4 rounded-xl bg-gradient-to-r from-amber-500/20 to-transparent border border-amber-400/30">
+        <div class="flex justify-between items-start">
+         <div>
+          <span class="text-gray-100 font-medium"> پکیج ویژه</span>
+          <p class="text-xs text-gray-400 mt-2">پیتزا اسپشیال XXL + سالاد سزار + سیب‌زمینی + قلیان</p>
+         </div>
+         <span class="text-amber-400 font-bold text-lg">995T</span>
+        </div>
+       </div>
+      </div>
+     </div>
+     
+     <!-- Drinks Sub-section -->
+     <div class="mt-6 pt-4 border-t border-red-400/10">
+      <h3 class="text-lg font-semibold text-red-300 mb-3 flex items-center gap-2">
+       <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M5,2V22H19V2H5M7,4H17V10L12,8L7,10V4Z" />
+       </svg>
+       نوشیدنی
+      </h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+       <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+        <span class="text-gray-200"> آب معدنی</span>
+        <span class="text-red-400 font-semibold">22T</span>
+       </div>
+       <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+        <span class="text-gray-200"> نوشابه</span>
+        <span class="text-red-400 font-semibold">55T</span>
+       </div>
+       <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+        <span class="text-gray-200"> دلستر</span>
+        <span class="text-red-400 font-semibold">50T</span>
+       </div>
+      </div>
+     </div>
+    </section>
+    
+    <!-- Pizza Section -->
+    <section id="pizza" class="menu-card rounded-2xl p-5 transition-all duration-300 animate-fadeIn">
+     <div class="category-header rounded-xl p-3 mb-4 flex items-center gap-3">
+      <div class="w-12 h-12 rounded-full bg-gradient-to-br from-yellow-500 to-yellow-700 flex items-center justify-center">
+       <svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12,15A2,2 0 0,1 10,13C10,11.89 10.9,11 12,11A2,2 0 0,1 14,13A2,2 0 0,1 12,15M7,7C7,5.89 7.89,5 9,5A2,2 0 0,1 11,7A2,2 0 0,1 9,9C7.89,9 7,8.1 7,7M12,2C8.43,2 5.23,3.54 3.01,6L12,22L20.99,6C18.78,3.54 15.57,2 12,2Z" />
+       </svg>
+      </div>
+      <h2 class="text-2xl font-bold text-yellow-400">پیتزا XXL</h2>
+     </div>
+     <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200"> بیف</span>
+       <span class="text-yellow-400 font-semibold">490T</span>
+      </div>
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200"> چیکن</span>
+       <span class="text-yellow-400 font-semibold">470T</span>
+      </div>
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200"> اسپشیال</span>
+       <span class="text-yellow-400 font-semibold">440T</span>
+      </div>
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200">بیکن</span>
+       <span class="text-yellow-400 font-semibold">420T</span>
+      </div>
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200">پپرونی</span>
+       <span class="text-yellow-400 font-semibold">400T</span>
+      </div>
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200">سبزیجات</span>
+       <span class="text-yellow-400 font-semibold">350T</span>
+      </div>
+     </div>
+    </section>
+    
+    <!-- Hookah Section -->
+    <section id="hookah" class="menu-card rounded-2xl p-5 transition-all duration-300 animate-fadeIn">
+     <div class="category-header rounded-xl p-3 mb-4 flex items-center gap-3">
+      <div class="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-indigo-700 flex items-center justify-center">
+       <svg class="w-7 h-7 text-white hookah-icon" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M8,3A2,2 0 0,0 6,5V8H4V10H6V19A2,2 0 0,0 8,21H10A2,2 0 0,0 12,19V10H14V8H12V5A2,2 0 0,0 10,3H8M8,5H10V8H8V5M8,10H10V19H8V10M16,8V10H18C19.1,10 20,10.9 20,12V14C20,15.1 19.1,16 18,16H16V18H18A4,4 0 0,0 22,14V12A4,4 0 0,0 18,8H16Z" />
+       </svg>
+      </div>
+      <h2 class="text-2xl font-bold text-indigo-400">قلیان</h2>
+     </div>
+     <div class="space-y-4">
+      <!-- Regular Flavors -->
+      <div class="bg-indigo-500/5 rounded-xl p-4">
+       <div class="flex justify-between items-start mb-3">
+        <span class="text-indigo-400 font-bold">235T</span>
+       </div>
+       <div class="flex flex-wrap gap-2">
+        <span class="px-3 py-1 bg-indigo-500/10 rounded-full text-sm text-gray-300"> دوسیب</span>
+        <span class="px-3 py-1 bg-indigo-500/10 rounded-full text-sm text-gray-300"> دوسیب آلبالو</span>
+        <span class="px-3 py-1 bg-indigo-500/10 rounded-full text-sm text-gray-300"> توت‌فرنگی</span>
+        <span class="px-3 py-1 bg-indigo-500/10 rounded-full text-sm text-gray-300"> بستنی</span>
+        <span class="px-3 py-1 bg-indigo-500/10 rounded-full text-sm text-gray-300"> شیره‌انبه</span>
+        <span class="px-3 py-1 bg-indigo-500/10 rounded-full text-sm text-gray-300"> شیره‌قهوه</span>
+        <span class="px-3 py-1 bg-indigo-500/10 rounded-full text-sm text-gray-300"> لیمونعنا</span>
+        <span class="px-3 py-1 bg-indigo-500/10 rounded-full text-sm text-gray-300"> بیسکویت</span>
+       </div>
+      </div>
+      
+      <!-- Ice Flavors -->
+      <div class="bg-indigo-500/5 rounded-xl p-4">
+       <div class="flex justify-between items-start mb-3">
+        <span class="text-indigo-400 font-bold">235T</span>
+       </div>
+       <div class="flex flex-wrap gap-2">
+        <span class="px-3 py-1 bg-indigo-500/10 rounded-full text-sm text-gray-300"> تمشک بستنی</span>
+        <span class="px-3 py-1 bg-indigo-500/10 rounded-full text-sm text-gray-300"> آدامس نعنا</span>
+        <span class="px-3 py-1 bg-indigo-500/10 rounded-full text-sm text-gray-300"> آدامس دارچین</span>
+        <span class="px-3 py-1 bg-indigo-500/10 rounded-full text-sm text-gray-300"> سیب یخ</span>
+        <span class="px-3 py-1 bg-indigo-500/10 rounded-full text-sm text-gray-300"> هندوانه یخ</span>
+       </div>
+      </div>
+      
+      <!-- Premium Flavors -->
+      <div class="bg-gradient-to-r from-indigo-500/10 to-purple-500/10 rounded-xl p-4 border border-indigo-400/20">
+       <div class="flex justify-between items-start mb-3">
+       
+        <span class="text-indigo-400 font-bold">255T</span>
+       </div>
+       <div class="flex flex-wrap gap-2">
+        <span class="px-3 py-1 bg-indigo-500/20 rounded-full text-sm text-gray-300"> شراب</span>
+        <span class="px-3 py-1 bg-indigo-500/20 rounded-full text-sm text-gray-300"> لیدی کیلر</span>
+        <span class="px-3 py-1 bg-indigo-500/20 rounded-full text-sm text-gray-300"> مسکو</span>
+        <span class="px-3 py-1 bg-indigo-500/20 rounded-full text-sm text-gray-300"> لاو</span>
+        <span class="px-3 py-1 bg-indigo-500/20 rounded-full text-sm text-gray-300"> شیخ مانی</span>
+        <span class="px-3 py-1 bg-indigo-500/20 rounded-full text-sm text-gray-300"> بلوهاست</span>
+       </div>
+      </div>
+      
+      <!-- Traditional -->
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all">
+       <span class="text-gray-200"> دوسیب فاخر سنتی</span>
+       <span class="text-indigo-400 font-semibold">220T</span>
+      </div>
+      
+      <!-- Tea Service -->
+      <div class="item-row flex justify-between items-center py-3 px-3 rounded-lg transition-all bg-amber-500/5 border border-amber-400/10">
+       <span class="text-gray-200"> سرویس چای (دو نفره)</span>
+       <span class="text-amber-400 font-semibold">100T</span>
+      </div>
+     </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="text-center py-8 border-t border-white/5 mt-8">
+     <div class="flex items-center justify-center gap-2 mb-3">
+      <svg class="w-6 h-6 text-amber-400" viewBox="0 0 24 24" fill="currentColor">
+       <path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z" />
+      </svg>
+      <p class="text-gray-400 text-sm">ممنونیم از حضور گرم شما</p>
+      <svg class="w-6 h-6 text-amber-400" viewBox="0 0 24 24" fill="currentColor">
+       <path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z" />
+      </svg>
+     </div>
+    </footer>
+   </main>
+   
+   <!-- Scroll to Top Button -->
+   <button id="scrollToTopBtn" onclick="scrollToTop()" class="fixed bottom-6 left-6 w-14 h-14 bg-gradient-to-br from-amber-500 to-amber-600 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 opacity-0 pointer-events-none hover:from-amber-400 hover:to-amber-500 hover:scale-110 z-50" style="box-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);">
+    <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
+     <path d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z" />
+    </svg>
+   </button>
+  </div>
+  
+  <script>
+    const defaultConfig = {
+      cafe_name: 'داروش'
+    };
+
+    let config = { ...defaultConfig };
+
+    function scrollToSection(sectionId, buttonElement) {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        
+        // Update active nav button
+        document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+        if (buttonElement) {
+          buttonElement.classList.add('active');
+          
+          // Auto-scroll the nav bar to center the active button on mobile
+          const nav = buttonElement.closest('nav');
+          if (nav && window.innerWidth < 768) {
+            const navContainer = nav.querySelector('div');
+            const buttonLeft = buttonElement.offsetLeft;
+            const buttonWidth = buttonElement.offsetWidth;
+            const navWidth = nav.offsetWidth;
+            const scrollTo = buttonLeft - (navWidth / 2) + (buttonWidth / 2);
+            navContainer.scrollTo({ left: scrollTo, behavior: 'smooth' });
+          }
+        }
+      }
+    }
+
+    async function onConfigChange(newConfig) {
+      config = { ...config, ...newConfig };
+      
+      const cafeNameEl = document.getElementById('cafe-name');
+      if (cafeNameEl) {
+        cafeNameEl.textContent = config.cafe_name || defaultConfig.cafe_name;
+      }
+    }
+
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [],
+        borderables: [],
+        fontEditable: undefined,
+        fontSizeable: undefined
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ['cafe_name', config.cafe_name || defaultConfig.cafe_name]
+      ]);
+    }
+
+    // Initialize SDK
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+
+    // Header fade out on scroll
+    const header = document.getElementById('main-header');
+    const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+    let lastScrollY = window.scrollY;
+    
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      
+      // Calculate opacity and transform based on scroll position
+      if (scrollY > 100) {
+        const opacity = Math.max(0, 1 - (scrollY - 100) / 300);
+        const translateY = Math.min(0, -(scrollY - 100) / 3);
+        
+        header.style.opacity = opacity;
+        header.style.transform = `translateY(${translateY}px)`;
+        
+        if (opacity === 0) {
+          header.style.pointerEvents = 'none';
+        } else {
+          header.style.pointerEvents = 'auto';
+        }
+      } else {
+        header.style.opacity = '1';
+        header.style.transform = 'translateY(0)';
+        header.style.pointerEvents = 'auto';
+      }
+      
+      // Show/hide scroll to top button
+      if (scrollY > 300) {
+        scrollToTopBtn.style.opacity = '1';
+        scrollToTopBtn.style.pointerEvents = 'auto';
+      } else {
+        scrollToTopBtn.style.opacity = '0';
+        scrollToTopBtn.style.pointerEvents = 'none';
+      }
+      
+      lastScrollY = scrollY;
+    });
+
+    // Scroll to top function
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Intersection Observer for section highlighting
+    const sections = document.querySelectorAll('section[id]');
+    const navButtons = document.querySelectorAll('.nav-btn');
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -60% 0px',
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.id;
+          const activeButton = document.querySelector(`.nav-btn[data-section="${sectionId}"]`);
+          
+          navButtons.forEach(btn => btn.classList.remove('active'));
+          
+          if (activeButton) {
+            activeButton.classList.add('active');
+            
+            // Auto-scroll nav to show active button on mobile
+            if (window.innerWidth < 768) {
+              const nav = activeButton.closest('nav');
+              if (nav) {
+                const navContainer = nav.querySelector('div');
+                const buttonLeft = activeButton.offsetLeft;
+                const buttonWidth = activeButton.offsetWidth;
+                const navWidth = nav.offsetWidth;
+                const scrollTo = buttonLeft - (navWidth / 2) + (buttonWidth / 2);
+                navContainer.scrollTo({ left: scrollTo, behavior: 'smooth' });
+              }
+            }
+          }
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(section => observer.observe(section));
+  </script>
+  
+  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c52d8f154d9d368',t:'MTc2OTYyODAyOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+ </body>
+</html>
